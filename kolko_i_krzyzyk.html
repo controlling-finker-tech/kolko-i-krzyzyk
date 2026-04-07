@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kolko i Krzyzyk</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      color: #e94560;
+    }
+
+    #status {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      height: 1.6em;
+      color: #a8dadc;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 110px);
+      grid-template-rows: repeat(3, 110px);
+      gap: 8px;
+    }
+
+    .cell {
+      background: #16213e;
+      border: 2px solid #0f3460;
+      border-radius: 12px;
+      font-size: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      user-select: none;
+    }
+
+    .cell:hover:not(.taken) {
+      background: #0f3460;
+      transform: scale(1.05);
+    }
+
+    .cell.x { color: #e94560; }
+    .cell.o { color: #a8dadc; }
+
+    .cell.win {
+      background: #0f3460;
+      border-color: #e94560;
+      animation: pulse 0.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to   { transform: scale(1.08); }
+    }
+
+    #restart {
+      margin-top: 28px;
+      padding: 12px 36px;
+      font-size: 1rem;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+
+    #restart:hover { background: #c73652; }
+
+    #score {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .score-box {
+      text-align: center;
+    }
+
+    .score-box span {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    #score-x span { color: #e94560; }
+    #score-o span { color: #a8dadc; }
+  </style>
+</head>
+<body>
+
+<h1>Kolko i Krzyzyk</h1>
+
+<div id="score">
+  <div class="score-box" id="score-x">Gracz X <span id="wins-x">0</span></div>
+  <div class="score-box" id="score-rem">Remisy <span id="draws">0</span></div>
+  <div class="score-box" id="score-o">Gracz O <span id="wins-o">0</span></div>
+</div>
+
+<div id="status">Ruch gracza X</div>
+
+<div id="board">
+  <div class="cell" data-i="0"></div>
+  <div class="cell" data-i="1"></div>
+  <div class="cell" data-i="2"></div>
+  <div class="cell" data-i="3"></div>
+  <div class="cell" data-i="4"></div>
+  <div class="cell" data-i="5"></div>
+  <div class="cell" data-i="6"></div>
+  <div class="cell" data-i="7"></div>
+  <div class="cell" data-i="8"></div>
+</div>
+
+<button id="restart">Nowa gra</button>
+
+<script>
+  const cells = document.querySelectorAll('.cell');
+  const status = document.getElementById('status');
+  const restartBtn = document.getElementById('restart');
+
+  const winsXEl = document.getElementById('wins-x');
+  const winsOEl = document.getElementById('wins-o');
+  const drawsEl = document.getElementById('draws');
+
+  const WINS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+  let board, current, gameOver, score = {X:0, O:0, D:0};
+
+  function init() {
+    board = Array(9).fill('');
+    current = 'X';
+    gameOver = false;
+    cells.forEach(c => {
+      c.textContent = '';
+      c.className = 'cell';
+    });
+    status.textContent = 'Ruch gracza X';
+  }
+
+  function checkWinner() {
+    for (const [a,b,c] of WINS) {
+      if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+        return { winner: board[a], line: [a,b,c] };
+      }
+    }
+    if (board.every(v => v)) return { winner: null, draw: true };
+    return null;
+  }
+
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      const i = +cell.dataset.i;
+      if (gameOver || board[i]) return;
+
+      board[i] = current;
+      cell.textContent = current === 'X' ? '✕' : '◯';
+      cell.classList.add(current.toLowerCase());
+      cell.classList.add('taken');
+
+      const result = checkWinner();
+
+      if (result) {
+        gameOver = true;
+        if (result.draw) {
+          status.textContent = 'Remis!';
+          score.D++;
+          drawsEl.textContent = score.D;
+        } else {
+          status.textContent = `Gracz ${result.winner} wygrywa!`;
+          result.line.forEach(idx => cells[idx].classList.add('win'));
+          score[result.winner]++;
+          winsXEl.textContent = score.X;
+          winsOEl.textContent = score.O;
+        }
+      } else {
+        current = current === 'X' ? 'O' : 'X';
+        status.textContent = `Ruch gracza ${current}`;
+      }
+    });
+  });
+
+  restartBtn.addEventListener('click', init);
+
+  init();
+</script>
+</body>
+</html>
