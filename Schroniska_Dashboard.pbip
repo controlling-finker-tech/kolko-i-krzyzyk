@@ -7,8 +7,5 @@
       }
     }
   ],
-  "settings": {
-    "enableTmdlView": false,
-    "includeNewLookFeatures": false
-  }
+  "settings": {}
 }
