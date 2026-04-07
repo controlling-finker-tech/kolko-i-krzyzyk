@@ -1,0 +1,51 @@
+{
+  "name": "ReportSection1",
+  "displayName": "Przegląd ogólny",
+  "filters": "[]",
+  "ordinal": 0,
+  "visualContainers": [
+    {
+      "id": 0,
+      "x": 0, "y": 0, "z": 0,
+      "width": 1280, "height": 60,
+      "config": "{\"name\":\"txtTytul1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":60,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Schroniska dla zwierz\\u0105t w Polsce\",\"textRunStyle\":{\"bold\":true,\"fontSize\":\"24px\",\"color\":\"#1B5E20\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+      "filters": "[]"
+    },
+    {
+      "id": 1,
+      "x": 20, "y": 70, "z": 1000,
+      "width": 260, "height": 110,
+      "config": "{\"name\":\"cardPsyOgolem\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Psy przyj\\u0119te (og\\u00f3\\u0142em)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr'\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}}}]}}}",
+      "filters": "[]"
+    },
+    {
+      "id": 2,
+      "x": 300, "y": 70, "z": 1000,
+      "width": 260, "height": 110,
+      "config": "{\"name\":\"cardKotyOgolem\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1001}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Koty przyj\\u0119te (og\\u00f3\\u0142em)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+      "filters": "[]"
+    },
+    {
+      "id": 3,
+      "x": 580, "y": 70, "z": 1000,
+      "width": 260, "height": 110,
+      "config": "{\"name\":\"cardSchroniska2024\",\"layouts\":[{\"id\":0,\"position\":{\"x\":580,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1002}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Schroniska.Schronisk w 2024\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Schronisk w 2024\"},\"Name\":\"Schroniska.Schronisk w 2024\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Schronisk w 2024'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+      "filters": "[]"
+    },
+    {
+      "id": 4,
+      "x": 20, "y": 195, "z": 1000,
+      "width": 615, "height": 490,
+      "config": "{\"name\":\"lineChartZwierzeta\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":195,\"z\":1000,\"width\":615,\"height\":490,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"},{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Zwierz\\u0119ta w schroniskach (2005\\u20132024)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+      "filters": "[]"
+    },
+    {
+      "id": 5,
+      "x": 650, "y": 195, "z": 1000,
+      "width": 610, "height": 490,
+      "config": "{\"name\":\"barChartAdopcje\",\"layouts\":[{\"id\":0,\"position\":{\"x\":650,\"y\":195,\"z\":1000,\"width\":610,\"height\":490,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w adoptowanych ze schronisk)\"},{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w adoptowanych ze schronisk)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w adoptowanych ze schronisk\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w adoptowanych ze schronisk)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w adoptowanych ze schronisk\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w adoptowanych ze schronisk)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Roczne adopcje: psy vs koty'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+      "filters": "[]"
+    }
+  ],
+  "config": "{\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]},\"defaultScrolledOutDistance\":0}"
+}
