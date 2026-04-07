@@ -1,0 +1,107 @@
+{
+  "id": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "name": "RegisteredResources",
+        "type": 1,
+        "items": [],
+        "disabled": false
+      }
+    }
+  ],
+  "sections": [
+    {
+      "id": 0,
+      "name": "ReportSection1",
+      "displayName": "Przegląd ogólny",
+      "filters": "[]",
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "id": 0,
+          "x": 0, "y": 0, "z": 0,
+          "width": 1280, "height": 60,
+          "config": "{\"name\":\"txtTytul1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":60,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Schroniska dla zwierz\\u0105t w Polsce\",\"textRunStyle\":{\"bold\":true,\"fontSize\":\"24px\",\"color\":\"#1B5E20\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 1,
+          "x": 20, "y": 70, "z": 1000,
+          "width": 260, "height": 110,
+          "config": "{\"name\":\"cardPsyOgolem\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Psy przyj\\u0119te (og\\u00f3\\u0142em)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 2,
+          "x": 300, "y": 70, "z": 1000,
+          "width": 260, "height": 110,
+          "config": "{\"name\":\"cardKotyOgolem\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1001}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Koty przyj\\u0119te (og\\u00f3\\u0142em)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#66BB6A'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 3,
+          "x": 580, "y": 70, "z": 1000,
+          "width": 260, "height": 110,
+          "config": "{\"name\":\"cardSchroniska2024\",\"layouts\":[{\"id\":0,\"position\":{\"x\":580,\"y\":70,\"z\":1000,\"width\":260,\"height\":110,\"tabOrder\":1002}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Schroniska.Schronisk w 2024\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Schronisk w 2024\"},\"Name\":\"Schroniska.Schronisk w 2024\"}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Schronisk w 2024'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#388E3C'\"}}}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 4,
+          "x": 20, "y": 195, "z": 1000,
+          "width": 615, "height": 490,
+          "config": "{\"name\":\"lineChartZwierzeta\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":195,\"z\":1000,\"width\":615,\"height\":490,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"},{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w w schroniskach\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Zwierz\\u0119ta w schroniskach (2005\\u20132024)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"colorSelector\":[{\"properties\":{\"fills\":[{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}},{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#66BB6A'\"}}}}}}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 5,
+          "x": 650, "y": 195, "z": 1000,
+          "width": 610, "height": 490,
+          "config": "{\"name\":\"barChartAdopcje\",\"layouts\":[{\"id\":0,\"position\":{\"x\":650,\"y\":195,\"z\":1000,\"width\":610,\"height\":490,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w adoptowanych ze schronisk)\"},{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w adoptowanych ze schronisk)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w adoptowanych ze schronisk\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w adoptowanych ze schronisk)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w adoptowanych ze schronisk\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w adoptowanych ze schronisk)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Roczne adopcje: psy vs koty'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"colorSelector\":[{\"properties\":{\"fills\":[{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w adoptowanych ze schronisk)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}},{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w adoptowanych ze schronisk)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#A5D6A7'\"}}}}}}]}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "config": "{\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]},\"defaultScrolledOutDistance\":0}"
+    },
+    {
+      "id": 1,
+      "name": "ReportSection2",
+      "displayName": "Skuteczność adopcji",
+      "filters": "[]",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "id": 10,
+          "x": 0, "y": 0, "z": 0,
+          "width": 1280, "height": 60,
+          "config": "{\"name\":\"txtTytul2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":60,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Skuteczno\\u015b\\u0107 adopcji i liczba schronisk\",\"textRunStyle\":{\"bold\":true,\"fontSize\":\"24px\",\"color\":\"#1B5E20\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 11,
+          "x": 20, "y": 75, "z": 1000,
+          "width": 1240, "height": 290,
+          "config": "{\"name\":\"lineChartWskazniki\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":75,\"z\":1000,\"width\":1240,\"height\":290,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Schroniska.Wska\\u017anik adopcji ps\\u00f3w [%]\"},{\"queryRef\":\"Schroniska.Wska\\u017anik adopcji kot\\u00f3w [%]\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Wska\\u017anik adopcji ps\\u00f3w [%]\"},\"Name\":\"Schroniska.Wska\\u017anik adopcji ps\\u00f3w [%]\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Wska\\u017anik adopcji kot\\u00f3w [%]\"},\"Name\":\"Schroniska.Wska\\u017anik adopcji kot\\u00f3w [%]\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Wska\\u017anik adopcji [%] \u2014 psy vs koty'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"colorSelector\":[{\"properties\":{\"fills\":[{\"identity\":{\"queryRef\":\"Schroniska.Wska\\u017anik adopcji ps\\u00f3w [%]\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}},{\"identity\":{\"queryRef\":\"Schroniska.Wska\\u017anik adopcji kot\\u00f3w [%]\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#66BB6A'\"}}}}}}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 12,
+          "x": 20, "y": 380, "z": 1000,
+          "width": 615, "height": 310,
+          "config": "{\"name\":\"barChartStanKoniec\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":380,\"z\":1000,\"width\":615,\"height\":310,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach - stan na koniec roku)\"},{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach - stan na koniec roku)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba ps\\u00f3w w schroniskach - stan na koniec roku\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach - stan na koniec roku)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba kot\\u00f3w w schroniskach - stan na koniec roku\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach - stan na koniec roku)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Stan na koniec roku (od 2015)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"colorSelector\":[{\"properties\":{\"fills\":[{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba ps\\u00f3w w schroniskach - stan na koniec roku)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2E7D32'\"}}}}}},{\"identity\":{\"queryRef\":\"Sum(Schroniska.Liczba kot\\u00f3w w schroniskach - stan na koniec roku)\"},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#A5D6A7'\"}}}}}}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "id": 13,
+          "x": 650, "y": 380, "z": 1000,
+          "width": 610, "height": 310,
+          "config": "{\"name\":\"lineChartSchroniska\",\"layouts\":[{\"id\":0,\"position\":{\"x\":650,\"y\":380,\"z\":1000,\"width\":610,\"height\":310,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Schroniska.Rok\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Schroniska.Liczba wszystkich schronisk)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Schroniska\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"},\"Name\":\"Schroniska.Rok\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Liczba wszystkich schronisk\"}},\"Function\":0},\"Name\":\"Sum(Schroniska.Liczba wszystkich schronisk)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Rok\"}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Liczba schronisk w Polsce (2012\\u20132024)'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"line\":[{\"properties\":{\"strokeColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1B5E20'\"}}}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
+      "config": "{\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]},\"defaultScrolledOutDistance\":0}"
+    }
+  ],
+  "config": "{\"version\":\"5.43\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.43\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"objects\":{\"section\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F1F8E9'\"}}}},\"transparency\":0}}]}],\"settings\":{\"useStylableVisualContainerHeader\":true}}",
+  "layoutOptimization": 0
+}

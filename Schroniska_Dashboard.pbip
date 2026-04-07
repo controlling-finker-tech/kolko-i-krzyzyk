@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "artifacts": [
+    {
+      "report": {
+        "path": "Schroniska_Dashboard.Report"
+      }
+    }
+  ],
+  "settings": {
+    "enableTmdlView": false,
+    "includeNewLookFeatures": false
+  }
+}
